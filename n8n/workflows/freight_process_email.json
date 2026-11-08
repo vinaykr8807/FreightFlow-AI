@@ -1,0 +1,298 @@
+{
+  "name": "FreightFlow | Process Email",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "freight/process",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "http://localhost:5173"
+        }
+      },
+      "id": "n1-webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "freightflow-process"
+    },
+    {
+      "parameters": {
+        "jsCode": "const b = $input.item.json.body || {};\nconst bin = $input.item.binary || {};\nconst binKey = Object.keys(bin)[0] || null;\nconst errors = [];\nfor (const f of ['job_id', 'email_id', 'body']) {\n  if (typeof b[f] !== 'string' || !b[f].trim()) errors.push(`${f} is required`);\n}\nreturn {\n  json: {\n    valid: errors.length === 0,\n    errors,\n    job_id: b.job_id,\n    email_id: b.email_id,\n    source: b.source === 'email_trigger' ? 'email_trigger' : 'dashboard',\n    sender: b.sender || '',\n    subject: b.subject || '',\n    body: b.body,\n    document_text: b.document_text || null,\n    document_error: b.document_error || null,\n    has_attachment: Boolean(binKey),\n    binary_key: binKey,\n  },\n  binary: bin,\n};"
+      },
+      "id": "n2-normalise",
+      "name": "Normalise Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "version": 2, "caseSensitive": true, "typeValidation": "loose" },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.valid }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n3-valid",
+      "name": "Input Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { accepted: false, errors: $json.errors } }}",
+        "options": { "responseCode": 400 }
+      },
+      "id": "n4-bad",
+      "name": "Respond 400",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [660, 160]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.FASTAPI_BASE_URL }}/internal/jobs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "X-Internal-Token", "value": "={{ $env.INTERNAL_API_TOKEN }}" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ job_id: $json.job_id, email_id: $json.email_id, source: $json.source }) }}",
+        "options": { "timeout": 15000 }
+      },
+      "id": "n5-create",
+      "name": "Create Job",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [660, -80],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1000
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { accepted: true, job_id: $json.job.job_id, status: $json.job.status, duplicate: $json.duplicate } }}",
+        "options": { "responseCode": 202 }
+      },
+      "id": "n6-ack",
+      "name": "Respond 202",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [880, -80]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "version": 2, "caseSensitive": true, "typeValidation": "loose" },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c2",
+              "leftValue": "={{ $('Create Job').item.json.duplicate }}",
+              "rightValue": false,
+              "operator": { "type": "boolean", "operation": "false", "singleValue": true }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n7-new",
+      "name": "New Job?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1100, -80]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "version": 2, "caseSensitive": true, "typeValidation": "loose" },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c4",
+              "leftValue": "={{ $('Normalise Input').item.json.has_attachment }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n7b-att",
+      "name": "Attachment Present?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1320, -160]
+    },
+    {
+      "parameters": {
+        "jsCode": "const norm = $('Normalise Input').first();\nreturn { json: norm.json, binary: norm.binary || {} };"
+      },
+      "id": "n7c-rebind",
+      "name": "Attach Binary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1540, -280]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.FASTAPI_BASE_URL }}/internal/documents/extract",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "X-Internal-Token", "value": "={{ $env.INTERNAL_API_TOKEN }}" }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "={{ $json.binary_key }}"
+            },
+            {
+              "parameterType": "formData",
+              "name": "job_id",
+              "value": "={{ $json.job_id }}"
+            }
+          ]
+        },
+        "options": { "timeout": 30000 }
+      },
+      "id": "n7d-extract",
+      "name": "Extract PDF Text",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1760, -280]
+    },
+    {
+      "parameters": {
+        "jsCode": "const norm = $('Normalise Input').first().json;\nconst cur = $input.item.json || {};\nlet document_text = norm.document_text || null;\nlet document_error = norm.document_error || null;\nif (cur.status === 'ok') {\n  document_text = cur.text || null;\n} else if (cur.status === 'error') {\n  document_error = cur.error_code || 'invalid_pdf';\n}\nreturn {\n  json: {\n    job_id: norm.job_id,\n    email_id: norm.email_id,\n    sender: norm.sender,\n    subject: norm.subject,\n    body: norm.body,\n    document_text,\n    document_error,\n  },\n};"
+      },
+      "id": "n7e-prep",
+      "name": "Prepare Process Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1980, -160]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.FASTAPI_BASE_URL }}/internal/process",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "X-Internal-Token", "value": "={{ $env.INTERNAL_API_TOKEN }}" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": { "timeout": 90000 }
+      },
+      "id": "n8-process",
+      "name": "Process Email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2200, -160],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "version": 2, "caseSensitive": true, "typeValidation": "loose" },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c3",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "needs_review",
+              "operator": { "type": "string", "operation": "equals" }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n9-review",
+      "name": "Needs Review?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [2420, -160]
+    },
+    {
+      "parameters": {},
+      "id": "n10-review-end",
+      "name": "Awaiting Human Review",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [2640, -260]
+    },
+    {
+      "parameters": {},
+      "id": "n11-done",
+      "name": "Completed or Failed",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [2640, -60]
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "Normalise Input", "type": "main", "index": 0 }]] },
+    "Normalise Input": { "main": [[{ "node": "Input Valid?", "type": "main", "index": 0 }]] },
+    "Input Valid?": {
+      "main": [
+        [{ "node": "Create Job", "type": "main", "index": 0 }],
+        [{ "node": "Respond 400", "type": "main", "index": 0 }]
+      ]
+    },
+    "Create Job": { "main": [[{ "node": "Respond 202", "type": "main", "index": 0 }]] },
+    "Respond 202": { "main": [[{ "node": "New Job?", "type": "main", "index": 0 }]] },
+    "New Job?": {
+      "main": [
+        [{ "node": "Attachment Present?", "type": "main", "index": 0 }],
+        []
+      ]
+    },
+    "Attachment Present?": {
+      "main": [
+        [{ "node": "Attach Binary", "type": "main", "index": 0 }],
+        [{ "node": "Prepare Process Payload", "type": "main", "index": 0 }]
+      ]
+    },
+    "Attach Binary": { "main": [[{ "node": "Extract PDF Text", "type": "main", "index": 0 }]] },
+    "Extract PDF Text": { "main": [[{ "node": "Prepare Process Payload", "type": "main", "index": 0 }]] },
+    "Prepare Process Payload": { "main": [[{ "node": "Process Email", "type": "main", "index": 0 }]] },
+    "Process Email": { "main": [[{ "node": "Needs Review?", "type": "main", "index": 0 }]] },
+    "Needs Review?": {
+      "main": [
+        [{ "node": "Awaiting Human Review", "type": "main", "index": 0 }],
+        [{ "node": "Completed or Failed", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "id": "freightflowprocess01"
+}

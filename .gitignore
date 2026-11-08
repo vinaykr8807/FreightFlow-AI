@@ -1,0 +1,29 @@
+# Environment variables (never commit real secrets)
+.env
+**/.env
+.env.*
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Python
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+**/.pytest_cache/
+
+# SQLite & local runtime data
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+backend/data/
+
+# Node / Frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/

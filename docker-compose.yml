@@ -1,0 +1,25 @@
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: freightflow-n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Asia/Kolkata
+      - TZ=Asia/Kolkata
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY:-dev-only-encryption-key-change-me}
+      - N8N_SECURE_COOKIE=false
+      # Lets workflow expressions read the variables below (local dev only).
+      - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
+      - INTERNAL_API_TOKEN=${INTERNAL_API_TOKEN:-dev-internal-token-change-me}
+      # FastAPI runs on the Windows host; use http://backend:8000 if it joins this compose network.
+      - FASTAPI_BASE_URL=${FASTAPI_BASE_URL:-http://host.docker.internal:8000}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - freightflow_n8n_data:/home/node/.n8n
+      - ./n8n/workflows:/workflows:ro
+
+volumes:
+  freightflow_n8n_data:
+

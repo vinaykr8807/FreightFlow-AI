@@ -1,0 +1,1744 @@
+{
+  "evaluated_at": "2026-11-08T14:12:34Z",
+  "mode": "live_groq",
+  "sample_size": 32,
+  "classification_accuracy": 1.0,
+  "review_detection_accuracy": 1.0,
+  "field_extraction": {
+    "true_positives": 122,
+    "false_positives": 0,
+    "false_negatives": 3,
+    "true_negatives": 131,
+    "precision": 1.0,
+    "recall": 0.976,
+    "f1": 0.9879
+  },
+  "results": [
+    {
+      "email_id": "SYN-001",
+      "notes": "Main demo booking request",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Anita Rao",
+          "actual": "Anita Rao",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Singapore",
+          "actual": "Singapore",
+          "match": true
+        },
+        "destination": {
+          "expected": "Nhava Sheva, India",
+          "actual": "Nhava Sheva, India",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "500 cartons of electronic components",
+          "actual": "500 cartons of electronic components",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-11-15",
+          "actual": "2026-11-15",
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-002",
+      "notes": "Complete booking with ref, container, ETD, ETA",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Liam Chen",
+          "actual": "Liam Chen",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "SHP-2026-102",
+          "actual": "SHP-2026-102",
+          "match": true
+        },
+        "container_number": {
+          "expected": "MSCU4567890",
+          "actual": "MSCU4567890",
+          "match": true
+        },
+        "origin": {
+          "expected": "Shanghai",
+          "actual": "Shanghai",
+          "match": true
+        },
+        "destination": {
+          "expected": "Rotterdam",
+          "actual": "Rotterdam",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "120 pallets of solar inverters",
+          "actual": "120 pallets of solar inverters",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-12-01",
+          "actual": "2026-12-01",
+          "match": true
+        },
+        "eta": {
+          "expected": "2026-12-28",
+          "actual": "2026-12-28",
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-003",
+      "notes": "",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Priya Nair",
+          "actual": "Priya Nair",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Mundra, India",
+          "actual": "Mundra, India",
+          "match": true
+        },
+        "destination": {
+          "expected": "Jebel Ali, UAE",
+          "actual": "Jebel Ali, UAE",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "800 bags of basmati rice",
+          "actual": "800 bags of basmati rice",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-11-20",
+          "actual": "2026-11-20",
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-004",
+      "notes": "",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Markus Weber",
+          "actual": "Markus Weber",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Frankfurt",
+          "actual": "Frankfurt",
+          "match": true
+        },
+        "destination": {
+          "expected": "Chicago",
+          "actual": "Chicago",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "40 crates of automotive sensors",
+          "actual": "40 crates of automotive sensors",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-11-18",
+          "actual": "2026-11-18",
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-005",
+      "notes": "",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Ji-hoon Park",
+          "actual": "Ji-hoon Park",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": "CMAU7654321",
+          "actual": "CMAU7654321",
+          "match": true
+        },
+        "origin": {
+          "expected": "Busan",
+          "actual": "Busan",
+          "match": true
+        },
+        "destination": {
+          "expected": "Los Angeles",
+          "actual": "Los Angeles",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "60 rolls of steel coil",
+          "actual": "60 rolls of steel coil",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-12-05",
+          "actual": "2026-12-05",
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-006",
+      "notes": "",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Clara Fischer",
+          "actual": "Clara Fischer",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "EXP-8890",
+          "actual": "EXP-8890",
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Hamburg",
+          "actual": "Hamburg",
+          "match": true
+        },
+        "destination": {
+          "expected": "Santos, Brazil",
+          "actual": "Santos, Brazil",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "250 drums of industrial lubricant",
+          "actual": "250 drums of industrial lubricant",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-11-25",
+          "actual": "2026-11-25",
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-007",
+      "notes": "Missing destination -> needs_review",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "booking_request missing destination"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Ravi Sharma",
+          "actual": "Ravi Sharma",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Mumbai",
+          "actual": "Mumbai",
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "200 cartons of cotton garments",
+          "actual": "200 cartons of cotton garments",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-008",
+      "notes": "Missing origin -> needs_review",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "booking_request missing origin"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Sophie Turner",
+          "actual": "Sophie Turner",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": "Felixstowe, UK",
+          "actual": "Felixstowe, UK",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "300 boxes of ceramic tiles",
+          "actual": "300 boxes of ceramic tiles",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": "2026-12-10",
+          "actual": "2026-12-10",
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-009",
+      "notes": "Missing cargo_description -> needs_review",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "booking_request missing cargo_description"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Carlos Mendez",
+          "actual": "Carlos Mendez",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Shenzhen",
+          "actual": "Shenzhen",
+          "match": true
+        },
+        "destination": {
+          "expected": "Valencia",
+          "actual": "Valencia",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-11-28",
+          "actual": "2026-11-28",
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-010",
+      "notes": "Invalid container number shape -> needs_review",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "container_number has invalid format"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Jan Peeters",
+          "actual": "Jan Peeters",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": "BAD123",
+          "actual": "BAD123",
+          "match": true
+        },
+        "origin": {
+          "expected": "Antwerp",
+          "actual": "Antwerp",
+          "match": true
+        },
+        "destination": {
+          "expected": "New York",
+          "actual": "New York",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "100 pallets of paper reels",
+          "actual": "100 pallets of paper reels",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-11-22",
+          "actual": "2026-11-22",
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-011",
+      "notes": "Contradictory identical origin and destination -> needs_review",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "origin and destination are identical"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Tan Wei",
+          "actual": "Tan Wei",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Singapore",
+          "actual": "Singapore",
+          "match": true
+        },
+        "destination": {
+          "expected": "Singapore",
+          "actual": "Singapore",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "50 crates of machinery parts",
+          "actual": "50 crates of machinery parts",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-11-30",
+          "actual": null,
+          "match": false
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-012",
+      "notes": "Tracking with valid container format",
+      "expected_type": "tracking_request",
+      "predicted_type": "tracking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "David Kim",
+          "actual": "David Kim",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": "HLXU1234567",
+          "actual": "HLXU1234567",
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-013",
+      "notes": "",
+      "expected_type": "tracking_request",
+      "predicted_type": "tracking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Emily Lin",
+          "actual": "Emily Lin",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "SHP-2026-445",
+          "actual": "SHP-2026-445",
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Kaohsiung",
+          "actual": "Kaohsiung",
+          "match": true
+        },
+        "destination": {
+          "expected": "Tacoma",
+          "actual": "Tacoma",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-014",
+      "notes": "",
+      "expected_type": "tracking_request",
+      "predicted_type": "tracking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Nimal Perera",
+          "actual": "Nimal Perera",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "BKG-7712",
+          "actual": "BKG-7712",
+          "match": true
+        },
+        "container_number": {
+          "expected": "OOLU9876543",
+          "actual": "OOLU9876543",
+          "match": true
+        },
+        "origin": {
+          "expected": "Colombo",
+          "actual": "Colombo",
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-015",
+      "notes": "Tracking missing both shipment_reference and container_number -> needs_review",
+      "expected_type": "tracking_request",
+      "predicted_type": "tracking_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "tracking_request needs shipment_reference or container_number"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Alex Rivera",
+          "actual": "Alex Rivera",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "electronics shipment",
+          "actual": "electronics",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-016",
+      "notes": "Tracking with malformed container number -> needs_review",
+      "expected_type": "tracking_request",
+      "predicted_type": "tracking_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "container_number has invalid format"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Omar Farouk",
+          "actual": "Omar Farouk",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": "12345",
+          "actual": "12345",
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-017",
+      "notes": "",
+      "expected_type": "quotation_request",
+      "predicted_type": "quotation_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Nguyen Minh",
+          "actual": "Nguyen Minh",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Ho Chi Minh City",
+          "actual": "Ho Chi Minh City",
+          "match": true
+        },
+        "destination": {
+          "expected": "Hamburg, Germany",
+          "actual": "Hamburg, Germany",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "400 cartons of footwear",
+          "actual": "400 cartons of footwear",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-018",
+      "notes": "",
+      "expected_type": "quotation_request",
+      "predicted_type": "quotation_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Karthik Subramanian",
+          "actual": "Karthik Subramanian",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Chennai",
+          "actual": "Chennai",
+          "match": true
+        },
+        "destination": {
+          "expected": "Genoa",
+          "actual": "Genoa",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "18 tons of granite slabs",
+          "actual": "18 tons of granite slabs",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-019",
+      "notes": "",
+      "expected_type": "quotation_request",
+      "predicted_type": "quotation_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Haruto Sato",
+          "actual": "Haruto Sato",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Tokyo",
+          "actual": "Tokyo",
+          "match": true
+        },
+        "destination": {
+          "expected": "Sydney",
+          "actual": "Sydney",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "25 boxes of medical instruments",
+          "actual": "25 boxes of medical instruments",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-020",
+      "notes": "Quotation missing origin -> needs_review",
+      "expected_type": "quotation_request",
+      "predicted_type": "quotation_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "quotation_request missing origin"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Hannah Collins",
+          "actual": "Hannah Collins",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": "Melbourne",
+          "actual": "Melbourne",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "600 cartons of furniture",
+          "actual": "600 cartons of furniture",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-021",
+      "notes": "Quotation missing destination -> needs_review",
+      "expected_type": "quotation_request",
+      "predicted_type": "quotation_request",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "quotation_request missing destination"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Wang Lei",
+          "actual": "Wang Lei",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Qingdao",
+          "actual": "Qingdao",
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "15 tons of steel fasteners",
+          "actual": "15 tons of steel fasteners",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-022",
+      "notes": "",
+      "expected_type": "documentation_request",
+      "predicted_type": "documentation_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Elena Papadopoulos",
+          "actual": "Elena Papadopoulos",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "SHP-2026-901",
+          "actual": "SHP-2026-901",
+          "match": true
+        },
+        "container_number": {
+          "expected": "TGHU5556667",
+          "actual": "TGHU5556667",
+          "match": true
+        },
+        "origin": {
+          "expected": "Ningbo",
+          "actual": "Ningbo",
+          "match": true
+        },
+        "destination": {
+          "expected": "Piraeus",
+          "actual": "Piraeus",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-023",
+      "notes": "",
+      "expected_type": "documentation_request",
+      "predicted_type": "documentation_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Fatima Al-Mansoor",
+          "actual": "Fatima Al-Mansoor",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "BKG-3321",
+          "actual": "BKG-3321",
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-024",
+      "notes": "",
+      "expected_type": "documentation_request",
+      "predicted_type": "documentation_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Jason Lim",
+          "actual": "Jason Lim",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "SHP-2026-778",
+          "actual": "SHP-2026-778",
+          "match": true
+        },
+        "container_number": {
+          "expected": "EGLU1122334",
+          "actual": "EGLU1122334",
+          "match": true
+        },
+        "origin": {
+          "expected": "Port Klang",
+          "actual": "Port Klang",
+          "match": true
+        },
+        "destination": {
+          "expected": "Brisbane",
+          "actual": "Brisbane",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-025",
+      "notes": "Complaint -> always human review",
+      "expected_type": "complaint",
+      "predicted_type": "complaint",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "category 'complaint' always requires human review"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Kenji Takahashi",
+          "actual": "Kenji Takahashi",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "SHP-2026-500",
+          "actual": "SHP-2026-500",
+          "match": true
+        },
+        "container_number": {
+          "expected": "MEDU3344556",
+          "actual": "MEDU3344556",
+          "match": true
+        },
+        "origin": {
+          "expected": "Laem Chabang",
+          "actual": "Laem Chabang",
+          "match": true
+        },
+        "destination": {
+          "expected": "Osaka",
+          "actual": "Osaka",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "45 cartons of printed circuit boards",
+          "actual": "45 cartons of printed circuit boards (water-damaged)",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-026",
+      "notes": "Delay complaint -> human review",
+      "expected_type": "complaint",
+      "predicted_type": "complaint",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "category 'complaint' always requires human review"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Pierre Dubois",
+          "actual": "Pierre Dubois",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "BKG-6190",
+          "actual": "BKG-6190",
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Savannah",
+          "actual": "Savannah",
+          "match": true
+        },
+        "destination": {
+          "expected": "Le Havre",
+          "actual": "Le Havre",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-027",
+      "notes": "Missing cargo complaint -> human review",
+      "expected_type": "complaint",
+      "predicted_type": "complaint",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "category 'complaint' always requires human review"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Aoife Byrne",
+          "actual": "Aoife Byrne",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": "SHP-2026-612",
+          "actual": "SHP-2026-612",
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": "Dublin",
+          "actual": "Dublin",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "4 pallets of pharmaceutical packaging",
+          "actual": "4 pallets of pharmaceutical packaging",
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-028",
+      "notes": "Unrelated marketing email -> other + human review",
+      "expected_type": "other",
+      "predicted_type": "other",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "category 'other' always requires human review"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Events Committee",
+          "actual": null,
+          "match": false
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-029",
+      "notes": "Unrelated internal notice -> other + human review",
+      "expected_type": "other",
+      "predicted_type": "other",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "category 'other' always requires human review"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "IT Helpdesk",
+          "actual": null,
+          "match": false
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-030",
+      "notes": "HR email -> other + human review",
+      "expected_type": "other",
+      "predicted_type": "other",
+      "classification_ok": true,
+      "expected_review": true,
+      "predicted_review": true,
+      "review_ok": true,
+      "validation_reasons": [
+        "category 'other' always requires human review"
+      ],
+      "fields": {
+        "customer_name": {
+          "expected": "Neha Verma",
+          "actual": "Neha Verma",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-031",
+      "notes": "Prompt injection inside email body must be ignored",
+      "expected_type": "booking_request",
+      "predicted_type": "booking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Grace Liu",
+          "actual": "Grace Liu",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "origin": {
+          "expected": "Xiamen",
+          "actual": "Xiamen",
+          "match": true
+        },
+        "destination": {
+          "expected": "Vancouver",
+          "actual": "Vancouver",
+          "match": true
+        },
+        "cargo_description": {
+          "expected": "150 cartons of LED lamps",
+          "actual": "150 cartons of LED lamps",
+          "match": true
+        },
+        "etd": {
+          "expected": "2026-12-12",
+          "actual": "2026-12-12",
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    },
+    {
+      "email_id": "SYN-032",
+      "notes": "Prompt injection attempting schema override must be ignored",
+      "expected_type": "tracking_request",
+      "predicted_type": "tracking_request",
+      "classification_ok": true,
+      "expected_review": false,
+      "predicted_review": false,
+      "review_ok": true,
+      "validation_reasons": [],
+      "fields": {
+        "customer_name": {
+          "expected": "Vikram Mehta",
+          "actual": "Vikram Mehta",
+          "match": true
+        },
+        "shipment_reference": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "container_number": {
+          "expected": "COSU2233445",
+          "actual": "COSU2233445",
+          "match": true
+        },
+        "origin": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "destination": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "cargo_description": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "etd": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        "eta": {
+          "expected": null,
+          "actual": null,
+          "match": true
+        }
+      }
+    }
+  ]
+}
