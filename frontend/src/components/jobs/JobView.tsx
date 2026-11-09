@@ -12,21 +12,36 @@ const SOCKET_LABEL = {
 } as const
 
 /** Shared job view used by both the submit page and the job-details page. */
-export default function JobView({ stream, jobId }: { stream: JobStream; jobId: string }) {
+export default function JobView({
+  stream,
+  jobId,
+  showOpenDetailsLink = true,
+}: {
+  stream: JobStream
+  jobId: string
+  showOpenDetailsLink?: boolean
+}) {
   const { job, events, socket, error } = stream
   const live = socket === 'open'
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center gap-3">
-        <h2 className="text-lg font-semibold">Job <code className="text-base">{jobId}</code></h2>
+        <h2 className="text-lg font-semibold">
+          Job <code className="text-base text-slate-800">{jobId}</code>
+        </h2>
         {job && <StatusBadge status={job.status} />}
         <span className={`inline-flex items-center gap-1.5 text-xs ${live ? 'text-emerald-600' : 'text-slate-500'}`}>
           <span className={`h-2 w-2 rounded-full ${live ? 'bg-emerald-500' : 'bg-slate-400'}`} />
           {SOCKET_LABEL[socket]}
         </span>
-        <Link to={`/jobs/${encodeURIComponent(jobId)}`} className="ml-auto text-xs text-indigo-600 hover:underline">
-          Open details
-        </Link>
+        {showOpenDetailsLink && (
+          <Link
+            to={`/jobs/${encodeURIComponent(jobId)}`}
+            className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-indigo-600 hover:text-indigo-800 hover:underline"
+          >
+            Open dedicated job page →
+          </Link>
+        )}
       </div>
 
       {error && (
